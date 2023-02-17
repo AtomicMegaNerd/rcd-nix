@@ -232,7 +232,7 @@
 
   xdg.configFile = {
     nvim = {
-      source = ../nvim;
+      source = ../common/nvim;
       target = "nvim";
     };
   };
