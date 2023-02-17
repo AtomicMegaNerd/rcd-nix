@@ -67,6 +67,33 @@
 
     plugins = [
       unstable.vimPlugins.nvim-treesitter.withAllGrammars
+      unstable.vimPlugins.alpha-nvim
+      unstable.vimPlugins.telescope-nvim
+      unstable.vimPlugins.telescope-ui-select-nvim
+      unstable.vimPlugins.telescope-fzf-native-nvim
+      unstable.vimPlugins.nightfox-nvim
+      unstable.vimPlugins.gitsigns-nvim
+      unstable.vimPlugins.nvim-lspconfig
+      unstable.vimPlugins.null-ls-nvim
+      unstable.vimPlugins.fidget-nvim
+      unstable.vimPlugins.nvim-cmp
+      unstable.vimPlugins.cmp-nvim-lsp
+      unstable.vimPlugins.cmp-path
+      unstable.vimPlugins.cmp-buffer
+      unstable.vimPlugins.cmp_luasnip
+      unstable.vimPlugins.luasnip
+      unstable.vimPlugins.lspkind-nvim
+      unstable.vimPlugins.lualine-nvim
+      unstable.vimPlugins.nvim-web-devicons
+      unstable.vimPlugins.plenary-nvim
+      unstable.vimPlugins.rust-tools-nvim
+      unstable.vimPlugins.comment-nvim
+      unstable.vimPlugins.todo-comments-nvim
+      unstable.vimPlugins.which-key-nvim
+      unstable.vimPlugins.vim-eunuch
+      unstable.vimPlugins.vim-fugitive
+      unstable.vimPlugins.vim-test
+      unstable.vimPlugins.vim-rooter
     ];
   };
 
