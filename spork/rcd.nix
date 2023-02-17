@@ -66,37 +66,50 @@
       nodePackages.markdownlint-cli
     ];
 
-    plugins = [
-      unstable.vimPlugins.nvim-treesitter.withAllGrammars
-      unstable.vimPlugins.alpha-nvim
-      unstable.vimPlugins.telescope-nvim
-      unstable.vimPlugins.telescope-ui-select-nvim
-      unstable.vimPlugins.telescope-file-browser-nvim
-      unstable.vimPlugins.telescope-fzf-native-nvim
-      unstable.vimPlugins.nightfox-nvim
-      unstable.vimPlugins.gitsigns-nvim
-      unstable.vimPlugins.nvim-lspconfig
-      unstable.vimPlugins.null-ls-nvim
-      unstable.vimPlugins.fidget-nvim
-      unstable.vimPlugins.nvim-cmp
-      unstable.vimPlugins.cmp-nvim-lsp
-      unstable.vimPlugins.cmp-path
-      unstable.vimPlugins.cmp-buffer
-      unstable.vimPlugins.cmp_luasnip
-      unstable.vimPlugins.luasnip
-      unstable.vimPlugins.lspkind-nvim
-      unstable.vimPlugins.lualine-nvim
-      unstable.vimPlugins.nvim-web-devicons
-      unstable.vimPlugins.plenary-nvim
-      unstable.vimPlugins.rust-tools-nvim
-      unstable.vimPlugins.comment-nvim
-      unstable.vimPlugins.todo-comments-nvim
-      unstable.vimPlugins.which-key-nvim
-      unstable.vimPlugins.vim-eunuch
-      unstable.vimPlugins.vim-fugitive
-      unstable.vimPlugins.vim-test
-      unstable.vimPlugins.vim-rooter
-    ];
+    plugins = with unstable.vimPlugins;
+      let
+        nvim-transparent = pkgs.vimUtils.buildVimPlugin {
+          name = "nvim-transparent";
+          src = pkgs.fetchFromGitHub {
+            owner = "xiyaowong";
+            repo = "nvim-transparent";
+            rev = "6816751e3d595b3209aa475a83b6fbaa3a5ccc98";
+            sha256 = "sha256-j1PO0r2q5w0fJvO7BG0xXDjIdOVl73eGO1rclB221uw=";
+          };
+        };
+      in
+      [
+        nvim-transparent
+        nvim-treesitter.withAllGrammars
+        alpha-nvim
+        telescope-nvim
+        telescope-ui-select-nvim
+        telescope-file-browser-nvim
+        telescope-fzf-native-nvim
+        nightfox-nvim
+        gitsigns-nvim
+        nvim-lspconfig
+        null-ls-nvim
+        fidget-nvim
+        nvim-cmp
+        cmp-nvim-lsp
+        cmp-path
+        cmp-buffer
+        cmp_luasnip
+        luasnip
+        lspkind-nvim
+        lualine-nvim
+        nvim-web-devicons
+        plenary-nvim
+        rust-tools-nvim
+        comment-nvim
+        todo-comments-nvim
+        which-key-nvim
+        vim-eunuch
+        vim-fugitive
+        vim-test
+        vim-rooter
+      ];
   };
 
   programs.bash = {
@@ -153,10 +166,13 @@
       '';
 
       shellAliases = {
-        ls = "exa";
-        ll = "exa -lah";
-        df = "duf";
-        cat = "bat --paging=never --style=plain";
+        ls = " exa ";
+        ll = "
+              exa - lah ";
+        df = "
+              duf ";
+        cat = "
+              bat - -paging=never --style=plain";
 
         # Directory aliases
         ch = "cd ~";
