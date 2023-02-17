@@ -7,7 +7,6 @@
 --
 -- Neovim Configuration File
 
-require("amn.plugins")
 require("amn.options")
 require("amn.autocmds")
 require("amn.keymap")
