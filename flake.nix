@@ -53,7 +53,25 @@
         blahaj = nixpkgs.lib.nixosSystem
           {
             inherit system;
-            modules = [ ./blahaj/configuration.nix ];
+            modules = [
+              ./blahaj/configuration.nix
+              home-manager.nixosModules.home-manager
+              {
+                home-manager = {
+                  useGlobalPkgs = true;
+                  useUserPackages = true;
+                  users.rcd = {
+                    imports = [ ./blahaj/rcd.nix ];
+                  };
+                  users.root = {
+                    imports = [ ./blahaj/root.nix ];
+                  };
+                  extraSpecialArgs = {
+                    inherit unstable;
+                  };
+                };
+              }
+            ];
           };
       };
     };
