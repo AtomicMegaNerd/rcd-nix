@@ -105,9 +105,6 @@
   programs.fish =
     {
       enable = true;
-      shellInit = ''
-        set -gx NIX_PATH $NIX_PATH:$HOME/.nix-defexpr/channels
-      '';
 
       interactiveShellInit = ''
         set fish_greeting # Disable greeting
@@ -168,16 +165,10 @@
         cpy = "cd ~/Code/Python/";
         ce = "cd ~/Code/Exercism/";
         cgo = "cd ~/Code/Go/";
-        cdot = "cd ~/Code/Configs/dotfiles/";
+        cdot = "cd ~/Code/Nix/rcd-nix";
 
         # Just use ripgrep
         grep = "rg";
-
-        # Convenient shortcuts
-        vconf = "nvim $HOME/.config/nvim/init.lua";
-        fconf = "nvim $HOME/.config/fish/config.fish";
-        aconf = "nvim $HOME/.config/alacritty/alacritty.yml";
-        nconf = "nvim $HOME/.config/nixpkgs/home.nix";
 
         tl = "tmux list-sessions";
         ta = "tmux attach";
