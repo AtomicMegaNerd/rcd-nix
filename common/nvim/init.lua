@@ -16,11 +16,6 @@ if vim.fn.has("macunix") == 1 then
 	require("amn.macos")
 end
 
--- Windows Specific configuration
-if vim.fn.has("win32") == 1 then
-	require("amn.windows")
-end
-
 -- Linux Specific configuration
 if vim.fn.has("linux") == 1 then
 	require("amn.linux")

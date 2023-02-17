@@ -71,6 +71,7 @@
       unstable.vimPlugins.alpha-nvim
       unstable.vimPlugins.telescope-nvim
       unstable.vimPlugins.telescope-ui-select-nvim
+      unstable.vimPlugins.telescope-file-browser-nvim
       unstable.vimPlugins.telescope-fzf-native-nvim
       unstable.vimPlugins.nightfox-nvim
       unstable.vimPlugins.gitsigns-nvim
@@ -165,16 +166,10 @@
         cpy = "cd ~/Code/Python/";
         ce = "cd ~/Code/Exercism/";
         cgo = "cd ~/Code/Go/";
-        cdot = "cd ~/Code/Configs/dotfiles/";
+        cdot = "cd ~/Code/Nix/rcd-nix";
 
         # Just use ripgrep
         grep = "rg";
-
-        # Convenient shortcuts
-        vconf = "nvim $HOME/.config/nvim/init.lua";
-        fconf = "nvim $HOME/.config/fish/config.fish";
-        aconf = "nvim $HOME/.config/alacritty/alacritty.yml";
-        nconf = "nvim $HOME/.config/nixpkgs/home.nix";
 
         tl = "tmux list-sessions";
         ta = "tmux attach";
@@ -266,6 +261,7 @@
   programs.alacritty = {
     enable = true;
     settings = {
+      env.TERM = "xterm-256color";
       font = {
         normal = {
           family = "JetBrainsMono Nerd Font";
@@ -292,7 +288,6 @@
         opacity = 0.97;
       };
       colors = {
-
         primary = {
           background = "0x192330";
           foreground = "0xcdcecf";
