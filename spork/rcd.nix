@@ -216,7 +216,6 @@
       ];
     };
 
-
   programs.tmux = {
     enable = true;
     prefix = "C-a";
@@ -253,15 +252,6 @@
     enable = true;
     enableFishIntegration = true;
   };
-
-  # Some weird bug
-  manual.manpages.enable = false;
-  manual.html.enable = false;
-  manual.json.enable = false;
-
-  xdg.enable = true;
-  xdg.mime.enable = true;
-  targets.genericLinux.enable = true;
 
   programs.ssh = {
     enable = true;
