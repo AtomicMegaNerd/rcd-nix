@@ -115,102 +115,101 @@
       ];
   };
 
-  programs.fish =
-    {
-      enable = true;
+  programs.fish = {
+    enable = true;
 
-      interactiveShellInit = ''
-        set fish_greeting # Disable greeting
+    interactiveShellInit = ''
+      set fish_greeting # Disable greeting
 
-        ### Nightfox theme ###
-        set -l foreground cdcecf
-        set -l selection 223249
-        set -l comment 526176
-        set -l red c94f6d
-        set -l orange f4a261
-        set -l yellow dbc074
-        set -l green 81b29a
-        set -l purple 9d79d6
-        set -l cyan 63cdcf
-        set -l pink d67ad2
+      ### Nightfox theme ###
+      set -l foreground cdcecf
+      set -l selection 223249
+      set -l comment 526176
+      set -l red c94f6d
+      set -l orange f4a261
+      set -l yellow dbc074
+      set -l green 81b29a
+      set -l purple 9d79d6
+      set -l cyan 63cdcf
+      set -l pink d67ad2
 
-        # Syntax Highlighting Colors
-        set -g fish_color_normal $foreground
-        set -g fish_color_command $cyan
-        set -g fish_color_keyword $pink
-        set -g fish_color_quote $yellow
-        set -g fish_color_redirection $foreground
-        set -g fish_color_end $orange
-        set -g fish_color_error $red
-        set -g fish_color_param $purple
-        set -g fish_color_comment $comment
-        set -g fish_color_selection --background=$selection
-        set -g fish_color_search_math --background=$selection
-        set -g fish_color_operator $green
-        set -g fish_color_escape $pink
-        set -g fish_color_autosuggestion $comment
+      # Syntax Highlighting Colors
+      set -g fish_color_normal $foreground
+      set -g fish_color_command $cyan
+      set -g fish_color_keyword $pink
+      set -g fish_color_quote $yellow
+      set -g fish_color_redirection $foreground
+      set -g fish_color_end $orange
+      set -g fish_color_error $red
+      set -g fish_color_param $purple
+      set -g fish_color_comment $comment
+      set -g fish_color_selection --background=$selection
+      set -g fish_color_search_math --background=$selection
+      set -g fish_color_operator $green
+      set -g fish_color_escape $pink
+      set -g fish_color_autosuggestion $comment
 
-        # Completion Pager Colors
-        set -g fish_pager_color_progress $comment
-        set -g fish_pager_color_prefix $cyan
-        set -g fish_pager_color_completion $foreground
-        set -g fish_pager_color_description $commentc
+      # Completion Pager Colors
+      set -g fish_pager_color_progress $comment
+      set -g fish_pager_color_prefix $cyan
+      set -g fish_pager_color_completion $foreground
+      set -g fish_pager_color_description $commentc
 
-        # omf configuration 
-        set -x VIRTUAL_ENV_DISABLE_PROMPT 1
-        set -g theme_nerd_fonts yes
-        set -g theme_color_scheme nord
-        set -g theme_newline_cursor yes
-        set -g theme_newline_prompt '% ' 
-      '';
+      # omf configuration 
+      set -x VIRTUAL_ENV_DISABLE_PROMPT 1
+      set -g theme_nerd_fonts yes
+      set -g theme_color_scheme nord
+      set -g theme_newline_cursor yes
+      set -g theme_newline_prompt '% ' 
+    '';
 
-      shellAliases = {
-        ls = "exa";
-        ll = "exa -lah";
-        df = "duf";
-        cat = "bat --paging=never --style=plain";
+    shellAliases = {
+      ls = "exa";
+      ll = "exa -lah";
+      df = "duf";
+      cat = "bat --paging=never --style=plain";
 
-        # Directory aliases
-        ch = "cd ~";
-        csrc = "cd ~/Code";
-        cr = "cd ~/Code/Rust/";
-        cg = "cd ~/Code/Go/";
-        cpy = "cd ~/Code/Python/";
-        ce = "cd ~/Code/Exercism/";
-        cgo = "cd ~/Code/Go/";
-        cdot = "cd ~/Code/Nix/rcd-nix";
+      # Directory aliases
+      ch = "cd ~";
+      csrc = "cd ~/Code";
+      cr = "cd ~/Code/Rust/";
+      cg = "cd ~/Code/Go/";
+      cpy = "cd ~/Code/Python/";
+      ce = "cd ~/Code/Exercism/";
+      cgo = "cd ~/Code/Go/";
+      cdot = "cd ~/Code/Nix/rcd-nix";
 
-        # Just use ripgrep
-        grep = "rg";
+      # Just use ripgrep
+      grep = "rg";
 
-        tl = "tmux list-sessions";
-        ta = "tmux attach";
-        tk = "tmux kill-session";
-        tka = "tmux kill-server";
+      tl = "tmux list-sessions";
+      ta = "tmux attach";
+      tk = "tmux kill-session";
+      tka = "tmux kill-server";
+    };
+
+    functions =
+      {
+        tn = "tmux new -s (basename (eval pwd))";
       };
 
-      functions =
-        {
-          tn = "tmux new -s (basename (eval pwd))";
-        };
-
-      plugins = [
-        {
-          name = "grc";
-          src = pkgs.fishPlugins.grc.src;
-        }
-        {
-          name = "bobthefish";
-          src = pkgs.fetchFromGitHub
-            {
-              owner = "oh-my-fish";
-              repo = "theme-bobthefish";
-              rev = "2dcfcab653ae69ae95ab57217fe64c97ae05d8de";
-              sha256 = "jBbm0wTNZ7jSoGFxRkTz96QHpc5ViAw9RGsRBkCQEIU=";
-            };
-        }
-      ];
-    };
+    plugins = [
+      {
+        name = "grc";
+        src = pkgs.fishPlugins.grc.src;
+      }
+      {
+        name = "bobthefish";
+        src = pkgs.fetchFromGitHub
+          {
+            owner = "oh-my-fish";
+            repo = "theme-bobthefish";
+            rev = "2dcfcab653ae69ae95ab57217fe64c97ae05d8de";
+            sha256 = "jBbm0wTNZ7jSoGFxRkTz96QHpc5ViAw9RGsRBkCQEIU=";
+          };
+      }
+    ];
+  };
 
   programs.tmux = {
     enable = true;
