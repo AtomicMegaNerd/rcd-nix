@@ -165,10 +165,10 @@
       '';
 
       shellAliases = {
-        ls = " exa ";
-        ll = "exa - lah ";
-        df = "duf ";
-        cat = "bat - -paging=never --style=plain";
+        ls = "exa";
+        ll = "exa - lah";
+        df = "duf";
+        cat = "bat --paging=never --style=plain";
 
         # Directory aliases
         ch = "cd ~";
