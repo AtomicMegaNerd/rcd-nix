@@ -166,12 +166,9 @@
 
       shellAliases = {
         ls = " exa ";
-        ll = "
-              exa - lah ";
-        df = "
-              duf ";
-        cat = "
-              bat - -paging=never --style=plain";
+        ll = "exa - lah ";
+        df = "duf ";
+        cat = "bat - -paging=never --style=plain";
 
         # Directory aliases
         ch = "cd ~";
@@ -263,6 +260,9 @@
   };
 
   fonts.fontconfig.enable = true;
+  xdg.enable = true;
+  xdg.mime.enable = true;
+  targets.genericLinux.enable = true;
 
   programs.alacritty = {
     enable = true;
