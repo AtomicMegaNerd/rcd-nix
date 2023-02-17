@@ -17,7 +17,6 @@
     duf
     htop
     neofetch
-    git
     gcc
     gnumake
     zip
@@ -235,6 +234,7 @@
     userEmail = "chris@megaparsec.ca";
     extraConfig = {
       init.defaultBranch = "main";
+      pull.rebase = false;
     };
   };
 
