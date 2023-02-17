@@ -25,33 +25,9 @@
     defaultEditor = true;
     vimAlias = true;
 
-    extraPackages = with unstable; [
-      # Language servers
-      rnix-lsp
-      ruff
-      rust-analyzer
-      yaml-language-server
-      nodePackages.bash-language-server
-      nodePackages.typescript-language-server
-
-      # null-ls sources
-      black
-      gofumpt
-      mypy
-      shellcheck
-      stylua
-      nixpkgs-fmt
-      nodePackages.prettier
-      nodePackages.markdownlint-cli
-    ];
-
     plugins = [
       unstable.vimPlugins.nvim-treesitter.withAllGrammars
     ];
-  };
-
-  programs.bash = {
-    enable = false;
   };
 
   programs.fish =
@@ -98,13 +74,6 @@
         set -g fish_pager_color_prefix $cyan
         set -g fish_pager_color_completion $foreground
         set -g fish_pager_color_description $commentc
-
-        # omf configuration 
-        set -x VIRTUAL_ENV_DISABLE_PROMPT 1
-        set -g theme_nerd_fonts yes
-        set -g theme_color_scheme nord
-        set -g theme_newline_cursor yes
-        set -g theme_newline_prompt '% ' 
       '';
 
       shellAliases = {
@@ -115,10 +84,6 @@
 
         # Just use ripgrep
         grep = "rg";
-
-        # Convenient shortcuts
-        vconf = "nvim $HOME/.config/nvim/init.lua";
-        fconf = "nvim $HOME/.config/fish/config.fish";
 
         tl = "tmux list-sessions";
         ta = "tmux attach";
@@ -135,16 +100,6 @@
         {
           name = "grc";
           src = pkgs.fishPlugins.grc.src;
-        }
-        {
-          name = "bobthefish";
-          src = pkgs.fetchFromGitHub
-            {
-              owner = "oh-my-fish";
-              repo = "theme-bobthefish";
-              rev = "2dcfcab653ae69ae95ab57217fe64c97ae05d8de";
-              sha256 = "jBbm0wTNZ7jSoGFxRkTz96QHpc5ViAw9RGsRBkCQEIU=";
-            };
         }
       ];
     };
@@ -200,13 +155,6 @@
       	  '';
   };
 
-  xdg.configFile = {
-    nvim = {
-      source = ../common/nvim;
-      target = "nvim";
-    };
-  };
-
   programs.bat = {
     enable = true;
     config = {
@@ -223,9 +171,4 @@
   manual.manpages.enable = false;
   manual.html.enable = false;
   manual.json.enable = false;
-
-  xdg.enable = true;
-  xdg.mime.enable = true;
-  targets.genericLinux.enable = true;
-
 }
