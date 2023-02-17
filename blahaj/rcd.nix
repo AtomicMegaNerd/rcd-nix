@@ -70,6 +70,7 @@
       unstable.vimPlugins.alpha-nvim
       unstable.vimPlugins.telescope-nvim
       unstable.vimPlugins.telescope-ui-select-nvim
+      unstable.vimPlugins.telescope-file-browser-nvim
       unstable.vimPlugins.telescope-fzf-native-nvim
       unstable.vimPlugins.nightfox-nvim
       unstable.vimPlugins.gitsigns-nvim
