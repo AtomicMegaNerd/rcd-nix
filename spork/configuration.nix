@@ -43,7 +43,7 @@ in
     };
   };
 
-  # Enable the X11 windowing system with the nVidia drivers
+  # Enable Wayland and XWayland with the nVidia drivers
   services.xserver = {
     enable = true;
     videoDrivers = [ "nvidia" ];
@@ -62,13 +62,15 @@ in
     docker.enable = true;
   };
 
-  programs.dconf.enable = true;
+  # Other services
   services.flatpak.enable = true;
   services.onedrive.enable = true;
 
-  # Setup 1Password
+  # Other core apps
+  programs.dconf.enable = true;
   programs._1password-gui.enable = true;
   programs._1password-gui.polkitPolicyOwners = [ "rcd" ];
+  programs.steam.enable = true;
 
   # Setup fonts
   fonts = {
