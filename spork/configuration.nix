@@ -43,8 +43,14 @@ in
     };
   };
 
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
+  # Enable the X11 windowing system with the nVidia drivers
+  services.xserver = {
+    enable = true;
+    videoDrivers = [ "nvidia" ];
+    layout = "us";
+    xkbVariant = "";
+  };
+  hardware.opengl.enable = true;
 
   # Virtualization and Containers
   virtualisation = {
@@ -94,11 +100,6 @@ in
     gnome-contacts
   ]);
 
-  # Configure keymap in X11
-  services.xserver = {
-    layout = "us";
-    xkbVariant = "";
-  };
 
   # Enable sound with pipewire.
   sound.enable = true;
