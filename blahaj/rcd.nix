@@ -33,6 +33,7 @@
     ruff
     yarn
     go-tools
+    oh-my-posh
   ];
 
 
@@ -155,12 +156,9 @@
       set -g fish_pager_color_completion $foreground
       set -g fish_pager_color_description $commentc
 
-      # omf configuration 
       set -x VIRTUAL_ENV_DISABLE_PROMPT 1
-      set -g theme_nerd_fonts yes
-      set -g theme_color_scheme nord
-      set -g theme_newline_cursor yes
-      set -g theme_newline_prompt '% ' 
+
+      oh-my-posh init fish | source
     '';
 
     shellAliases = {
@@ -197,16 +195,6 @@
       {
         name = "grc";
         src = pkgs.fishPlugins.grc.src;
-      }
-      {
-        name = "bobthefish";
-        src = pkgs.fetchFromGitHub
-          {
-            owner = "oh-my-fish";
-            repo = "theme-bobthefish";
-            rev = "2dcfcab653ae69ae95ab57217fe64c97ae05d8de";
-            sha256 = "jBbm0wTNZ7jSoGFxRkTz96QHpc5ViAw9RGsRBkCQEIU=";
-          };
       }
     ];
   };
