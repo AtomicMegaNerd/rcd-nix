@@ -158,7 +158,7 @@
 
       set -x VIRTUAL_ENV_DISABLE_PROMPT 1
 
-      oh-my-posh init fish | source
+      oh-my-posh init fish --config ~/.config/oh-my-posh/rcd.omp.json | source
     '';
 
     shellAliases = {
@@ -212,6 +212,10 @@
     tmux = {
       source = ../common/tmux;
       target = "tmux";
+    };
+    oh-my-posh = {
+      source = ../common/oh-my-posh;
+      target = "oh-my-posh";
     };
   };
 

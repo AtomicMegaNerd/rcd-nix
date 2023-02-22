@@ -156,7 +156,6 @@
       set -g fish_pager_color_description $commentc
 
       # omf configuration 
-      set -x VIRTUAL_ENV_DISABLE_PROMPT 1
       set -g theme_nerd_fonts yes
       set -g theme_color_scheme nord
       set -g theme_newline_cursor yes
