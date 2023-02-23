@@ -99,8 +99,6 @@
         cmp-nvim-lsp
         cmp-path
         cmp-buffer
-        cmp_luasnip
-        luasnip
         lspkind-nvim
         lualine-nvim
         nvim-web-devicons
