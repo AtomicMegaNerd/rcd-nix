@@ -28,28 +28,6 @@
     in
     {
       nixosConfigurations = {
-        spork = nixpkgs.lib.nixosSystem {
-          inherit system;
-          modules = [
-            ./spork/configuration.nix
-            home-manager.nixosModules.home-manager
-            {
-              home-manager = {
-                useGlobalPkgs = true;
-                useUserPackages = true;
-                users.rcd = {
-                  imports = [ ./spork/rcd.nix ];
-                };
-                users.root = {
-                  imports = [ ./spork/root.nix ];
-                };
-                extraSpecialArgs = {
-                  inherit unstable;
-                };
-              };
-            }
-          ];
-        };
         blahaj = nixpkgs.lib.nixosSystem {
           inherit system;
           modules = [

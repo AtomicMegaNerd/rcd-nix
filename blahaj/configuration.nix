@@ -36,22 +36,8 @@ in
 
   environment.systemPackages = with pkgs;
     [
-      # Use stable for the core OS packages
       wget
       curl
-      fzf
-      ripgrep
-      fd
-      fish
-      exa
-      bat
-      du-dust
-      duf
-      htop
-      neofetch
-      git
-      tmux
-      procs
       rustup
     ];
 

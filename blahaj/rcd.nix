@@ -5,14 +5,12 @@
   home.stateVersion = "22.11";
   programs.home-manager.enable = true;
 
-  home.packages = with pkgs; [
+  home.packages = with unstable; [
     wget
     curl
-    fzf
     ripgrep
     fd
     exa
-    bat
     du-dust
     duf
     htop
@@ -35,7 +33,6 @@
     go-tools
     oh-my-posh
   ];
-
 
   programs.bash = {
     enable = false;
@@ -72,9 +69,9 @@
 
     plugins = with unstable.vimPlugins;
       let
-        nvim-transparent = pkgs.vimUtils.buildVimPlugin {
+        nvim-transparent = unstable.vimUtils.buildVimPlugin {
           name = "nvim-transparent";
-          src = pkgs.fetchFromGitHub {
+          src = unstable.fetchFromGitHub {
             owner = "xiyaowong";
             repo = "nvim-transparent";
             rev = "6816751e3d595b3209aa475a83b6fbaa3a5ccc98";
@@ -192,7 +189,7 @@
     plugins = [
       {
         name = "grc";
-        src = pkgs.fishPlugins.grc.src;
+        src = unstable.fishPlugins.grc.src;
       }
     ];
   };

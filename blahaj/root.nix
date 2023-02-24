@@ -5,14 +5,12 @@
   home.stateVersion = "22.11";
   programs.home-manager.enable = true;
 
-  home.packages = with pkgs; [
+  home.packages = with unstable; [
     wget
     curl
-    fzf
     ripgrep
     fd
     exa
-    bat
     du-dust
     duf
     htop
@@ -99,7 +97,7 @@
       plugins = [
         {
           name = "grc";
-          src = pkgs.fishPlugins.grc.src;
+          src = unstable.fishPlugins.grc.src;
         }
       ];
     };
