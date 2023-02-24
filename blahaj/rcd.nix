@@ -21,14 +21,11 @@
     unzip
     go
     jq
-    python311
     tldr
     grc
     procs
     just
     exercism
-    poetry
-    ruff
     yarn
     go-tools
     oh-my-posh
@@ -57,9 +54,7 @@
       nodePackages.typescript-language-server
 
       # null-ls sources
-      black
       gofumpt
-      mypy
       shellcheck
       stylua
       nixpkgs-fmt
@@ -211,6 +206,10 @@
     oh-my-posh = {
       source = ../common/oh-my-posh;
       target = "oh-my-posh";
+    };
+    poetry = {
+      source = ../common/poetry;
+      target = "poetry";
     };
   };
 
