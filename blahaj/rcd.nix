@@ -31,6 +31,11 @@
     oh-my-posh
   ];
 
+  programs.direnv = {
+    enable = true;
+    nix-direnv.enable = true;
+  };
+
   programs.bash = {
     enable = false;
   };
@@ -43,18 +48,12 @@
 
     extraPackages = with unstable; [
       # Language servers
-      pyright
-      gopls
       sumneko-lua-language-server
-      rnix-lsp
-      ruff
-      rust-analyzer
       yaml-language-server
       nodePackages.bash-language-server
-      nodePackages.typescript-language-server
+      rnix-lsp
 
       # null-ls sources
-      gofumpt
       shellcheck
       stylua
       nixpkgs-fmt
