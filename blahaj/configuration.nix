@@ -38,7 +38,6 @@ in
     [
       wget
       curl
-      rustup
     ];
 
   # List services that you want to enable:

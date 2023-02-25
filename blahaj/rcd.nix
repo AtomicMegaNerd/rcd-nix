@@ -15,19 +15,12 @@
     duf
     htop
     neofetch
-    gcc
-    gnumake
     zip
     unzip
-    go
     jq
     tldr
     grc
     procs
-    just
-    exercism
-    yarn
-    go-tools
     oh-my-posh
   ];
 
