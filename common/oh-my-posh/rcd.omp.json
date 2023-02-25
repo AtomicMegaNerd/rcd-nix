@@ -7,6 +7,7 @@
         {
           "background": "#dfdfe0",
           "foreground": "#192330",
+          "leading_diamond": "\ue0b6",
           "powerline_symbol": "\ue0b0",
           "style": "diamond",
           "template": " {{ .HostName }} ",
