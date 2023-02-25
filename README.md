@@ -7,12 +7,18 @@ Right now we have two hosts:
 - spork
 - blahaj
 
-## Run the Host Flake Build
+## Run OS Upgrade
 
 Run the build against the host that you are interested in:
 
 ```bash
-sudo nixos-rebuild switch --flake .#<HOSTNAME>
+sudo nixos-rebuild switch --flake .#
+```
+
+## Run Home-Manager Upgrade
+
+```bash
+home-manager switch -- flake .#USERNAME
 ```
 
 ## Next Steps

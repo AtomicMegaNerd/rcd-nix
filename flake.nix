@@ -27,6 +27,7 @@
       };
     in
     {
+      # Home Manager configuration
       homeConfigurations = {
         useGlobalPkgs = true;
         useUserPackages = true;
@@ -37,7 +38,15 @@
             inherit unstable;
           };
         };
+        "root" = home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          modules = [ ./blahaj/rcd.nix ];
+          extraSpecialArgs = {
+            inherit unstable;
+          };
+        };
       };
+      # Nix OS core configuration
       nixosConfigurations = {
         blahaj = nixpkgs.lib.nixosSystem {
           inherit system;
