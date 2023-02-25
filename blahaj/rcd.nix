@@ -69,7 +69,6 @@
         rust-tools-nvim
         comment-nvim
         todo-comments-nvim
-        which-key-nvim
         vim-eunuch
         vim-fugitive
         vim-test
