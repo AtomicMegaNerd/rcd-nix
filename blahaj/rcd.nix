@@ -6,31 +6,13 @@
   programs.home-manager.enable = true;
 
   home.packages = with unstable; [
-    wget
-    curl
-    ripgrep
-    fd
-    exa
-    du-dust
-    duf
-    htop
     neofetch
-    zip
-    unzip
-    jq
-    tldr
-    grc
-    procs
     oh-my-posh
   ];
 
   programs.direnv = {
     enable = true;
     nix-direnv.enable = true;
-  };
-
-  programs.bash = {
-    enable = false;
   };
 
   programs.neovim = {
@@ -42,15 +24,12 @@
     extraPackages = with unstable; [
       # Language servers
       sumneko-lua-language-server
-      yaml-language-server
-      nodePackages.bash-language-server
       rnix-lsp
 
       # null-ls sources
       shellcheck
       stylua
       nixpkgs-fmt
-      nodePackages.prettier
       nodePackages.markdownlint-cli
     ];
 

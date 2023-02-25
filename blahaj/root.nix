@@ -6,15 +6,7 @@
   programs.home-manager.enable = true;
 
   home.packages = with unstable; [
-    wget
-    curl
-    ripgrep
-    fd
-    exa
-    du-dust
-    duf
-    htop
-    grc
+    oh-my-posh
   ];
 
   programs.neovim = {

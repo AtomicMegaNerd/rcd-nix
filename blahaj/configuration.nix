@@ -40,6 +40,17 @@ in
       curl
       git
       neovim
+      du-dust
+      duf
+      htop
+      ripgrep
+      fd
+      exa
+      grc
+      zip
+      unzip
+      procs
+      jq
     ];
 
   # List services that you want to enable:
