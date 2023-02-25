@@ -27,6 +27,7 @@
       # Nix OS core configuration
       nixosConfigurations = {
         blahaj = nixpkgs.lib.nixosSystem {
+          pkgs = pkgs-linux;
           system = "x86_64-linux";
           modules = [
             ./blahaj/configuration.nix
@@ -39,11 +40,11 @@
         useGlobalPkgs = true;
         useUserPackages = true;
         "rcd@blahaj" = home-manager.lib.homeManagerConfiguration {
-          pkgs-linux = unstable-linux;
+          pkgs = unstable-linux;
           modules = [ ./blahaj/rcd.nix ];
         };
         "root@blahaj" = home-manager.lib.homeManagerConfiguration {
-          pkgs-linux = unstable-linux;
+          pkgs = unstable-linux;
           modules = [ ./blahaj/rcd.nix ];
         };
       };

@@ -23,15 +23,17 @@ in
   networking.networkmanager.enable = true;
   time.timeZone = "America/Edmonton";
 
-  users.users.rcd = {
-    isNormalUser = true;
-    extraGroups = [ "wheel" "docker" ]; # Enable ‘sudo’ for the user.
-    packages = with pkgs; [
-    ];
-    shell = pkgs.fish;
-    openssh.authorizedKeys.keys = [
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIK9DWvFVS2L2P6G/xUlV0yp6gOpqGgCj4dbY91zyT8ul"
-    ];
+  users = {
+    users.rcd = {
+      isNormalUser = true;
+      extraGroups = [ "wheel" "docker" ]; # Enable ‘sudo’ for the user.
+      packages = with pkgs; [
+      ];
+      shell = pkgs.fish;
+      openssh.authorizedKeys.keys = [
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIK9DWvFVS2L2P6G/xUlV0yp6gOpqGgCj4dbY91zyT8ul"
+      ];
+    };
   };
 
   environment.systemPackages = with pkgs;
