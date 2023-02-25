@@ -14,15 +14,14 @@
 
   outputs = { self, nixpkgs, nixpkgs-unstable, home-manager }:
     let
-      system = "x86_64-linux";
       # 22.11 Stable
       pkgs = import nixpkgs {
-        inherit system;
+        system = "x86_64-linux";
         config.allowUnfree = true;
       };
       # Unstable
       unstable = import nixpkgs-unstable {
-        inherit system;
+        system = "x86_64-linux";
         config.allowUnfree = true;
       };
     in
@@ -31,25 +30,19 @@
       homeConfigurations = {
         useGlobalPkgs = true;
         useUserPackages = true;
-        "rcd" = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
+        "rcd@blahaj" = home-manager.lib.homeManagerConfiguration {
+          pkgs = unstable;
           modules = [ ./blahaj/rcd.nix ];
-          extraSpecialArgs = {
-            inherit unstable;
-          };
         };
-        "root" = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
+        "root@blahaj" = home-manager.lib.homeManagerConfiguration {
+          pkgs = unstable;
           modules = [ ./blahaj/rcd.nix ];
-          extraSpecialArgs = {
-            inherit unstable;
-          };
         };
       };
       # Nix OS core configuration
       nixosConfigurations = {
         blahaj = nixpkgs.lib.nixosSystem {
-          inherit system;
+          system = "x86_64-linux";
           modules = [
             ./blahaj/configuration.nix
           ];

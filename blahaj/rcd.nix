@@ -1,11 +1,11 @@
-{ config, pkgs, unstable, ... }:
+{ config, pkgs, ... }:
 {
   home.username = "rcd";
   home.homeDirectory = "/home/rcd";
   home.stateVersion = "22.11";
   programs.home-manager.enable = true;
 
-  home.packages = with unstable; [
+  home.packages = with pkgs; [
     neofetch
     oh-my-posh
   ];
@@ -16,12 +16,12 @@
   };
 
   programs.neovim = {
-    package = unstable.neovim-unwrapped;
+    package = pkgs.neovim-unwrapped;
     enable = true;
     defaultEditor = true;
     vimAlias = true;
 
-    extraPackages = with unstable; [
+    extraPackages = with pkgs; [
       # Language servers
       sumneko-lua-language-server
       rnix-lsp
@@ -33,11 +33,11 @@
       nodePackages.markdownlint-cli
     ];
 
-    plugins = with unstable.vimPlugins;
+    plugins = with pkgs.vimPlugins;
       let
-        nvim-transparent = unstable.vimUtils.buildVimPlugin {
+        nvim-transparent = pkgs.vimUtils.buildVimPlugin {
           name = "nvim-transparent";
-          src = unstable.fetchFromGitHub {
+          src = pkgs.fetchFromGitHub {
             owner = "xiyaowong";
             repo = "nvim-transparent";
             rev = "6816751e3d595b3209aa475a83b6fbaa3a5ccc98";
@@ -111,7 +111,7 @@
       set -g fish_color_autosuggestion $comment
 
       # Completion Pager Colors
-      set -g fish_pager_color_progress $comment
+      sef -g fish_pager_color_progress $comment
       set -g fish_pager_color_prefix $cyan
       set -g fish_pager_color_completion $foreground
       set -g fish_pager_color_description $commentc
@@ -154,7 +154,7 @@
     plugins = [
       {
         name = "grc";
-        src = unstable.fishPlugins.grc.src;
+        src = pkgs.fishPlugins.grc.src;
       }
     ];
   };

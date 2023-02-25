@@ -1,22 +1,22 @@
-{ config, pkgs, unstable, ... }:
+{ config, pkgs, ... }:
 {
   home.username = "root";
   home.homeDirectory = "/root";
   home.stateVersion = "22.11";
   programs.home-manager.enable = true;
 
-  home.packages = with unstable; [
+  home.packages = with pkgs; [
     oh-my-posh
   ];
 
   programs.neovim = {
-    package = unstable.neovim-unwrapped;
+    package = pkgs.neovim-unwrapped;
     enable = true;
     defaultEditor = true;
     vimAlias = true;
 
     plugins = [
-      unstable.vimPlugins.nvim-treesitter.withAllGrammars
+      pkgs.vimPlugins.nvim-treesitter.withAllGrammars
     ];
   };
 
@@ -89,7 +89,7 @@
       plugins = [
         {
           name = "grc";
-          src = unstable.fishPlugins.grc.src;
+          src = pkgs.fishPlugins.grc.src;
         }
       ];
     };
