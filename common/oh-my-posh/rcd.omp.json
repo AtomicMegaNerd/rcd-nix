@@ -5,17 +5,26 @@
       "alignment": "left",
       "segments": [
         {
-          "background": "#719cd6",
+          "background": "#dfdfe0",
           "foreground": "#192330",
-          "leading_diamond": "\ue0b6",
+          "powerline_symbol": "\ue0b0",
           "style": "diamond",
+          "template": " {{ .HostName }} ",
+          "type": "text"
+        },
+        {
+          "background": "#3b4261",
+          "foreground": "#719cd6",
+          "leading_diamond": "\ue0b6",
+          "powerline_symbol": "\ue0b0",
+          "style": "powerline",
           "template": " {{ .UserName }} ",
-          "trailing_diamond": "\ue0b0",
           "type": "session"
         },
         {
           "background": "#86abdc",
           "foreground": "#192330",
+          "leading_diamond": "\ue0b6",
           "powerline_symbol": "\ue0b0",
           "properties": {
             "folder_separator_icon": " \ue0b1 ",
