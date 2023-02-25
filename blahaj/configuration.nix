@@ -38,6 +38,8 @@ in
     [
       wget
       curl
+      git
+      neovim
     ];
 
   # List services that you want to enable:
