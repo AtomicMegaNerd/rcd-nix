@@ -1,10 +1,10 @@
 # AtomicMegaNerd's NixOS Flake
 
-This is my core flake for my NixOS machines.
+This is my core flake for my NixOS machines as well as any other machines that
+use Nix as a package manager.
 
-Right now we have two hosts:
+Right now we have one host:
 
-- spork
 - blahaj
 
 ## Run OS Upgrade
@@ -23,7 +23,6 @@ home-manager switch -- flake .#USERNAME
 
 ## Next Steps
 
-There is some code repetition happening here (for example the neovim config).
-I want to better learn how Nix works so I can refactor that out.
-
-I also want to get this working on my personal and my work Mac.
+- [ ] Get this working on my Mac
+- [ ] Merge this with my core dotfiles repo so I have 1 repo for all my
+      configurations regardless of OS.
