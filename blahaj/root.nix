@@ -16,7 +16,21 @@
     vimAlias = true;
 
     plugins = [
-      pkgs.vimPlugins.nvim-treesitter.withAllGrammars
+      pkgs.vimPlugins.nvim-treesitter.withPlugins
+      (p:
+        [
+          p.nix
+          p.go
+          p.rust
+          p.haskell
+          p.python
+          p.typescript
+          p.fish
+          p.bash
+          p.markdown
+          p.yaml
+          p.toml
+        ])
     ];
   };
 

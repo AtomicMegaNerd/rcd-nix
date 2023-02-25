@@ -47,7 +47,21 @@
       in
       [
         nvim-transparent
-        nvim-treesitter.withAllGrammars
+        (nvim-treesitter.withPlugins (p:
+          [
+            p.nix
+            p.go
+            p.rust
+            p.haskell
+            p.python
+            p.typescript
+            p.fish
+            p.bash
+            p.markdown
+            p.yaml
+            p.toml
+          ])
+        )
         alpha-nvim
         telescope-nvim
         telescope-ui-select-nvim
@@ -111,7 +125,7 @@
       set -g fish_color_autosuggestion $comment
 
       # Completion Pager Colors
-      sef -g fish_pager_color_progress $comment
+      set -g fish_pager_color_progress $comment
       set -g fish_pager_color_prefix $cyan
       set -g fish_pager_color_completion $foreground
       set -g fish_pager_color_description $commentc
