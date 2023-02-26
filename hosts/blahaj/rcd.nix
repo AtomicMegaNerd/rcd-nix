@@ -1,7 +1,4 @@
 { config, pkgs, ... }:
-let
-  rcd_pub_key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIK9DWvFVS2L2P6G/xUlV0yp6gOpqGgCj4dbY91zyT8ul";
-in
 {
   home.username = "rcd";
   home.homeDirectory = "/home/rcd";
@@ -11,10 +8,6 @@ in
   home.packages = with pkgs; [
     neofetch
     oh-my-posh
-    exa
-    duf
-    du-dust
-    grc
   ];
 
   programs.direnv = {
@@ -100,10 +93,6 @@ in
   programs.fish = {
     enable = true;
 
-    shellInit = ''
-      set -gx EDITOR nvim
-    '';
-
     interactiveShellInit = ''
       set fish_greeting # Disable greeting
 
@@ -142,6 +131,7 @@ in
       set -g fish_pager_color_description $commentc
 
       set -x VIRTUAL_ENV_DISABLE_PROMPT 1
+
       oh-my-posh init fish --config ~/.config/oh-my-posh/rcd.omp.json | source
     '';
 
@@ -190,24 +180,23 @@ in
 
   xdg.configFile = {
     nvim = {
-      source = ../common/nvim;
+      source = ../../common/nvim;
       target = "nvim";
     };
     tmux = {
-      source = ../common/tmux;
+      source = ../../common/tmux;
       target = "tmux";
     };
     oh-my-posh = {
-      source = ../common/oh-my-posh;
+      source = ../../common/oh-my-posh;
       target = "oh-my-posh";
     };
     poetry = {
-      source = ../common/poetry;
+      source = ../../common/poetry;
       target = "poetry";
     };
   };
 
-  home.file.".ssh/allowed_signers".text = "${rcd_pub_key}";
   programs.git = {
     enable = true;
     userName = "Chris Dunphy";
@@ -215,14 +204,6 @@ in
     extraConfig = {
       init.defaultBranch = "main";
       pull.rebase = false;
-      core.editor = "nvim";
-      gpg.format = "ssh";
-      gpg.ssh = {
-        allowedSignersFile = "/Users/rcd/.ssh/allowed_signers";
-        program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign";
-      };
-      user.signingkey = "${rcd_pub_key}";
-      commit.gpgsign = true;
     };
   };
 

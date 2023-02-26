@@ -34,7 +34,7 @@
           pkgs = pkgs-linux;
           system = "x86_64-linux";
           modules = [
-            ./blahaj/configuration.nix
+            ./hosts/blahaj/configuration.nix
           ];
         };
       };
@@ -45,15 +45,15 @@
         useUserPackages = true;
         "rcd@blahaj" = home-manager.lib.homeManagerConfiguration {
           pkgs = unstable-linux;
-          modules = [ ./blahaj/rcd.nix ];
+          modules = [ ./hosts/blahaj/rcd.nix ];
         };
         "root@blahaj" = home-manager.lib.homeManagerConfiguration {
           pkgs = unstable-linux;
-          modules = [ ./blahaj/rcd.nix ];
+          modules = [ ./hosts/blahaj/rcd.nix ];
         };
         "rcd@Discovery" = home-manager.lib.homeManagerConfiguration {
           pkgs = unstable-mac;
-          modules = [ ./discovery/rcd.nix ];
+          modules = [ ./hosts/discovery/rcd.nix ];
         };
       };
     };
