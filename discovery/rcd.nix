@@ -101,7 +101,6 @@ in
     enable = true;
 
     shellInit = ''
-      set -gx PATH $PATH:$HOME/.nix-profile/bin:/nix/var/nix/profiles/default/bin
       set -gx EDITOR nvim
     '';
 
