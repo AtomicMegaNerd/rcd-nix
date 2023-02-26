@@ -14,10 +14,10 @@ use Nix as a package manager.
 
 Right now we have two hosts:
 
-| Host      | OS    | Platform      |
-|-----------|-------|---------------|
-| blahaj    | NixOS | x86-64-linux  |
-| discovery | MacOS | arch64-darwin |
+| Host      | OS    | Platform       |
+| --------- | ----- | -------------- |
+| blahaj    | NixOS | x86-64-linux   |
+| discovery | MacOS | aarch64-darwin |
 
 ## Run OS Upgrade
 
