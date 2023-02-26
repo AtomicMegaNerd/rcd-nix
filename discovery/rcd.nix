@@ -1,4 +1,7 @@
 { config, pkgs, ... }:
+let
+  rcd_pub_key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIK9DWvFVS2L2P6G/xUlV0yp6gOpqGgCj4dbY91zyT8ul";
+in
 {
   home.username = "rcd";
   home.homeDirectory = "/home/rcd";
@@ -97,6 +100,11 @@
   programs.fish = {
     enable = true;
 
+    shellInit = ''
+      set -gx PATH $PATH:$HOME/.nix-profile/bin:/nix/var/nix/profiles/default/bin
+      set -gx EDITOR nvim
+    '';
+
     interactiveShellInit = ''
       set fish_greeting # Disable greeting
 
@@ -135,7 +143,6 @@
       set -g fish_pager_color_description $commentc
 
       set -x VIRTUAL_ENV_DISABLE_PROMPT 1
-
       oh-my-posh init fish --config ~/.config/oh-my-posh/rcd.omp.json | source
     '';
 
@@ -201,6 +208,7 @@
     };
   };
 
+  home.file.".ssh/allowed_signers".text = "${rcd_pub_key}";
   programs.git = {
     enable = true;
     userName = "Chris Dunphy";
@@ -208,6 +216,14 @@
     extraConfig = {
       init.defaultBranch = "main";
       pull.rebase = false;
+      core.editor = "nvim";
+      gpg.format = "ssh";
+      gpg.ssh = {
+        allowedSignersFile = "/Users/rcd/.ssh/allowed_signers";
+        program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign";
+      };
+      user.signingkey = "${rcd_pub_key}";
+      commit.gpgsign = true;
     };
   };
 
