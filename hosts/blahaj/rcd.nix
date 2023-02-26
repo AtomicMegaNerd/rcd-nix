@@ -31,6 +31,9 @@
       stylua
       nixpkgs-fmt
       nodePackages.markdownlint-cli
+      nodePackages.yaml-language-server
+      nodePackages.bash-language-server
+      nodePackages.prettier
     ];
 
     plugins = with pkgs.vimPlugins;
