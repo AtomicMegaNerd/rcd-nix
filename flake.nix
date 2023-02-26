@@ -21,6 +21,10 @@
         system = "x86_64-linux";
         config.allowUnfree = true;
       };
+      unstable-mac = import nixpkgs-unstable {
+	system = "aarch64-darwin";
+        config.allowUnfree = true;
+      };
     in
     {
 
@@ -46,6 +50,10 @@
         "root@blahaj" = home-manager.lib.homeManagerConfiguration {
           pkgs = unstable-linux;
           modules = [ ./blahaj/rcd.nix ];
+        };
+	"rcd@Discovery" = home-manager.lib.homeManagerConfiguration {
+          pkgs = unstable-mac;
+          modules = [ ./discovery/rcd.nix ];
         };
       };
     };
