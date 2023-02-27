@@ -15,6 +15,8 @@ in
     duf
     du-dust
     grc
+    colima
+    docker
   ];
 
   programs.direnv = {
