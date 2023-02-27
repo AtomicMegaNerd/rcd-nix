@@ -15,11 +15,7 @@
     nix-direnv.enable = true;
   };
 
-  programs.neovim = import ../../common/neovim.nix
-    {
-      config = config;
-      pkgs = pkgs;
-    };
+  programs.neovim = import ../../common/neovim.nix { inherit pkgs; };
 
   programs.fish = {
     enable = true;

@@ -1,6 +1,5 @@
-{ config, pkgs, ... }:
+{ pkgs }:
 {
-  package = pkgs.neovim-unwrapped;
   enable = true;
   defaultEditor = true;
   vimAlias = true;
