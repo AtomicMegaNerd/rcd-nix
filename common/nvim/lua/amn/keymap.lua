@@ -59,6 +59,8 @@ keymap.set("n", "<leader>fk", tb.keymaps, { desc = "[F]ind Neovim [K]eymaps" })
 keymap.set("n", "<leader>ft", [[<cmd>TodoTelescope<cr>]], { desc = "[F]ind [T]odo Comments" })
 -- File Browser
 keymap.set("n", "<leader>bf", tfb, { desc = "[B]rowse [F]iles " })
+-- ToggleTerm
+keymap.set("n", "<leader>c", [[<cmd>ToggleTerm direction=float<cr>]], { desc = "Open [C]ommand-line terminal" })
 
 -- Run Tests
 ----------------------------------------------------------------
