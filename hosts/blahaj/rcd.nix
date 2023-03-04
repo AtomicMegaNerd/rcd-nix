@@ -20,6 +20,11 @@
   programs.fish = {
     enable = true;
 
+    shellInit = ''
+      set -gx EDITOR nvim
+      set -gx GOPATH $HOME/.local/go
+    '';
+
     interactiveShellInit = ''
       set fish_greeting # Disable greeting
 
