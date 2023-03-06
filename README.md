@@ -9,6 +9,8 @@
                                              /____/
 ```
 
+**NOTE** migrated to my main dotfiles repo at [https://github.com/AtomicMegaNerd/dotfiles](https://github.com/AtomicMegaNerd/dotfiles). Archiving this repo.
+
 This is my core flake for my Nix-managed machines as well as any other machines that
 use Nix as a package manager.
 
